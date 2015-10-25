@@ -3,6 +3,14 @@ execute pathogen#infect()
 "syntax highlighting
 syntax on
 
+filetype plugin indent on
+
+set smartindent
+set autoindent
+
+" Hightlight current line
+set cursorline
+
 "show line number
 set number
 
