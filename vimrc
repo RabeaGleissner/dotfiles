@@ -8,6 +8,8 @@ filetype plugin indent on
 set smartindent
 set autoindent
 
+"show file path in status line
+set statusline+=%F
 " Hightlight current line
 set cursorline
 
