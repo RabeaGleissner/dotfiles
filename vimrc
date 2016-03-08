@@ -1,15 +1,18 @@
+set nocompatible
+
 execute pathogen#infect()
-
-"syntax highlighting
 syntax on
-
-"fix issue where arrow keys display ABCD in insert mode
-set term=builtin_ansi
-
 filetype plugin indent on
 
+set encoding=utf8
 set nosmartindent
 set autoindent
+set modelines=0
+
+set background=dark
+set hidden
+set backspace=indent,eol,start
+set noswapfile
 
 "show file path in status line
 set statusline+=%F
@@ -27,12 +30,13 @@ inoremap <Esc> <Esc>:w<CR>
 nmap <CR> o<ESC>
 "my leader is space
 let mapleader=" "
+"run tests with leader + t
+map <leader>t :! clear; rspec spec; <cr>
 
 "show line number
 set number
 
-syntax enable
-colorscheme monokai
+colorscheme wellsokai
 
 set expandtab
 set tabstop=4
@@ -65,3 +69,21 @@ set complete+=kspell
 
 "open nerdtree using Ctrl+n
 map <C-n> :NERDTreeToggle<CR>
+
+"no arrow keys in normal, insert, visual modes
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+inoremap <up> <nop>
+inoremap <down> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
+vnoremap <up> <nop>
+vnoremap <up> <nop>
+vnoremap <up> <nop>
+vnoremap <up> <nop>
+noremap j gj
+noremap k gk
+noremap gj j
+noremap gk k
