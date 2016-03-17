@@ -1,5 +1,6 @@
 set nocompatible
 
+
 execute pathogen#infect()
 syntax on
 filetype plugin indent on
@@ -24,29 +25,44 @@ let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
 "remapping commands
-"automatically save when escaping insert mode
-inoremap <Esc> <Esc>:w<CR>
-"hit enter to insert a new line without going into insert mode
-nmap <CR> o<ESC>
 "my leader is space
 let mapleader=" "
-"run tests with leader + t
-map <leader>t :! clear; rspec spec; <cr>
+"automatically save when escaping insert mode
+inoremap <Esc> <Esc>:w<CR>
+" remap jf to escape
+inoremap jf <Esc>:w<CR>
+"hit enter to insert a new line without going into insert mode
+nmap <CR> o<ESC>
+"run tests with leader + t (tests open in new pane with vim-dispatch)
+map <leader>t :Dispatch rspec spec<CR>
+" Run vim-dispatch for the specific test where the line cursor is on
+map <leader>tt :execute "Dispatch rspec %:" . line(".")<CR>
+"Run rspec and take over the whole screen
+map <leader>ft :! clear; rspec spec; <cr>
+
+"navigating splits more easily
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
 "show line number
 set number
 
+"use mac clipboard to copy and paste between other applications and vim
+set clipboard+=unnamed
+
 colorscheme wellsokai
 
 set expandtab
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 
 "indentation
-autocmd Filetype html setlocal ts=2 sw=2 expandtab
-autocmd Filetype css setlocal ts=2 sw=2 expandtab
-autocmd Filetype scss setlocal ts=2 sw=2 expandtab
-autocmd Filetype ruby setlocal ts=2 sw=2 expandtab
+"autocmd Filetype html setlocal ts=2 sw=2 expandtab
+"autocmd Filetype css setlocal ts=2 sw=2 expandtab
+"autocmd Filetype scss setlocal ts=2 sw=2 expandtab
+"autocmd Filetype ruby setlocal ts=2 sw=2 expandtab
 autocmd Filetype javascript setlocal ts=4 sw=4 expandtab
 autocmd Filetype java setlocal ts=4 sw=4 expandtab
 
