@@ -37,8 +37,12 @@ nmap <CR> o<ESC>
 map <leader>t :Dispatch rspec spec<CR>
 " Run vim-dispatch for the specific test where the line cursor is on
 map <leader>tt :execute "Dispatch rspec %:" . line(".")<CR>
-"Run rspec and take over the whole screen
-map <leader>ft :! clear; rspec spec; <cr>
+"Run rspec without the slow tests and take over the whole screen
+map <leader>ft :! clear; rspec --tag '~slow' spec/ <cr>
+"Run all rspec tests including slow tests and take over the whole screen
+map <leader>aft :! clear; rspec spec/ <cr>
+"ctrlP fuzzy searching files
+let g:ctrlp_map = '<c-p>'
 
 "navigating splits more easily
 nnoremap <C-J> <C-W><C-J>
@@ -85,6 +89,8 @@ set complete+=kspell
 
 "open nerdtree using Ctrl+n
 map <C-n> :NERDTreeToggle<CR>
+"show hidden files by default
+let NERDTreeShowHidden=1
 
 "no arrow keys in normal, insert, visual modes
 nnoremap <up> <nop>
