@@ -1,6 +1,5 @@
 set nocompatible
 
-
 execute pathogen#infect()
 syntax on
 filetype plugin indent on
@@ -14,6 +13,7 @@ set background=dark
 set hidden
 set backspace=indent,eol,start
 set noswapfile
+set autoindent " automatically set indent of new line
 
 "show file path in status line
 set statusline+=%F
@@ -43,6 +43,8 @@ map <leader>ft :! clear; rspec --tag '~slow' spec/ <cr>
 map <leader>aft :! clear; rspec spec/ <cr>
 "ctrlP fuzzy searching files
 let g:ctrlp_map = '<c-p>'
+"indent entire page"
+map <Leader>i mzgg=G`z
 
 "navigating splits more easily
 nnoremap <C-J> <C-W><C-J>
