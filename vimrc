@@ -33,18 +33,26 @@ inoremap <Esc> <Esc>:w<CR>
 inoremap jf <Esc>:w<CR>
 "hit enter to insert a new line without going into insert mode
 nmap <CR> o<ESC>
-"run tests with leader + t (tests open in new pane with vim-dispatch)
-map <leader>t :Dispatch rspec spec<CR>
-" Run vim-dispatch for the specific test where the line cursor is on
-map <leader>tt :execute "Dispatch rspec %:" . line(".")<CR>
-"Run rspec without the slow tests and take over the whole screen
-map <leader>ft :! clear; rspec --tag '~slow' spec/ <cr>
-"Run all rspec tests including slow tests and take over the whole screen
-map <leader>aft :! clear; rspec spec/ <cr>
 "ctrlP fuzzy searching files
 let g:ctrlp_map = '<c-p>'
 "indent entire page"
 map <Leader>i mzgg=G`z
+
+"Shorcuts for running tests
+"Ruby
+"run tests with leader + t (tests open in new pane with vim-dispatch)
+autocmd Filetype ruby map <leader>t :Dispatch rspec spec<CR>
+"Run vim-dispatch for the specific test where the line cursor is on
+autocmd Filetype ruby map <leader>tt :execute "Dispatch rspec %:" . line(".")<CR>
+"Run all rspec tests including slow tests on full screen
+autocmd Filetype ruby map <leader>aft :! clear; rspec spec/ <cr>
+"Run rspec without the slow tests on full screen
+autocmd Filetype ruby map <leader>ft :! clear; rspec --tag '~slow' spec/ <cr>
+"Elixir
+"Run ExUnit tests on full screen with leader + ft
+autocmd Filetype elixir map <leader>ft :! clear; mix test<cr>
+"run ExUnit tests with leader + t in vim-dispatch
+autocmd Filetype elixir map <leader>t :Dispatch mix test<CR>
 
 "navigating splits more easily
 nnoremap <C-J> <C-W><C-J>
