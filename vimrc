@@ -14,6 +14,7 @@ set hidden
 set backspace=indent,eol,start
 set noswapfile
 set autoindent " automatically set indent of new line
+set mouse=a "switch on mouse scrolling
 
 "show file path in status line
 set statusline+=%F
@@ -29,10 +30,8 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 let mapleader=" "
 "automatically save when escaping insert mode
 inoremap <Esc> <Esc>:w<CR>
-" remap jf to escape
+"remap jf to escape
 inoremap jf <Esc>:w<CR>
-"hit enter to insert a new line without going into insert mode
-nmap <CR> o<ESC>
 "ctrlP fuzzy searching files
 let g:ctrlp_map = '<c-p>'
 "indent entire page"
