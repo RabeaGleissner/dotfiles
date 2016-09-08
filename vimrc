@@ -15,6 +15,8 @@ set backspace=indent,eol,start
 set noswapfile
 set autoindent " automatically set indent of new line
 set mouse=a "switch on mouse scrolling
+"disable Q for not automatically entering Ex mode
+nnoremap Q <nop>
 
 "show file path in status line
 set statusline+=%F
