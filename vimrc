@@ -36,6 +36,11 @@ inoremap <Esc> <Esc>:w<CR>
 inoremap jf <Esc>:w<CR>
 "ctrlP fuzzy searching files
 let g:ctrlp_map = '<c-p>'
+"use ag to search for files to improve speed
+if executable('ag')
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+endif
+
 "indent entire page"
 map <Leader>i mzgg=G`z
 
@@ -120,3 +125,16 @@ noremap j gj
 noremap k gk
 noremap gj j
 noremap gk k
+
+"vim-go settings
+au FileType go nmap <leader>r <Plug>(go-run)
+au FileType go nmap <leader>b <Plug>(go-build)
+au FileType go nmap <leader>t <Plug>(go-test)
+au FileType go nmap <leader>c <Plug>(go-coverage)
+"enable syntax highlighting
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_types = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1

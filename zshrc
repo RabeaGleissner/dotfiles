@@ -23,3 +23,9 @@ export PATH=$HOME/.rbenv/shims:$PATH
 source /usr/local/opt/nvm/nvm.sh
 export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh
+
+export GOPATH=/Users/rabeagleissner
+export PATH=$PATH:$GOPATH/bin
+
+#configuration for php-version
+source $(brew --prefix php-version)/php-version.sh && php-version 5
