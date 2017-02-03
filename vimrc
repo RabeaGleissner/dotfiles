@@ -15,50 +15,56 @@ set backspace=indent,eol,start
 set noswapfile
 set autoindent " automatically set indent of new line
 set mouse=a "switch on mouse scrolling
-"disable Q for not automatically entering Ex mode
+" disable Q for not automatically entering Ex mode
 nnoremap Q <nop>
+set wildignore+=**/node_modules
 
-"show file path in status line
+" show file path in status line
 set statusline+=%F
 " Hightlight current line
 set cursorline
 
-"change cursor shape for insert mode
+" change cursor shape for insert mode
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
-"remapping commands
-"my leader is space
+" remapping commands
+" my leader is space
 let mapleader=" "
-"automatically save when escaping insert mode
+" automatically save when escaping insert mode
 inoremap <Esc> <Esc>:w<CR>
-"remap jf to escape
+" remap jf to escape
 inoremap jf <Esc>:w<CR>
-"ctrlP fuzzy searching files
+" ctrlP fuzzy searching files
 let g:ctrlp_map = '<c-p>'
-"use ag to search for files to improve speed
+" use ag to search for files to improve speed
 if executable('ag')
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
 
-"indent entire page"
+" indent entire page"
 map <Leader>i mzgg=G`z
 
-"Shorcuts for running tests
-"Ruby
-"run tests with leader + t (tests open in new pane with vim-dispatch)
+" Shorcuts for running tests
+" Ruby
+" run tests with leader + t (tests open in new pane with vim-dispatch)
 autocmd Filetype ruby map <leader>t :Dispatch rspec spec<CR>
-"Run vim-dispatch for the specific test where the line cursor is on
+" Run vim-dispatch for the specific test where the line cursor is on
 autocmd Filetype ruby map <leader>tt :execute "Dispatch rspec %:" . line(".")<CR>
-"Run all rspec tests including slow tests on full screen
+" Run all rspec tests including slow tests on full screen
 autocmd Filetype ruby map <leader>aft :! clear; rspec spec/ <cr>
-"Run rspec without the slow tests on full screen
+" Run rspec without the slow tests on full screen
 autocmd Filetype ruby map <leader>ft :! clear; rspec --tag '~slow' spec/ <cr>
 "Elixir
 "Run ExUnit tests on full screen with leader + ft
 autocmd Filetype elixir map <leader>ft :! clear; mix test<cr>
 "run ExUnit tests with leader + t in vim-dispatch
 autocmd Filetype elixir map <leader>t :Dispatch mix test<CR>
+"PHP
+"Run PHPUnit tests on full screen with leader + ft
+autocmd Filetype php map <leader>ft :! clear; vendor/bin/phpunit test<cr>
+"run PHPUnit tests with leader + t in vim-dispatch
+autocmd Filetype php map <leader>t :Dispatch vendor/bin/phpunit test<CR>
 
 "navigating splits more easily
 nnoremap <C-J> <C-W><C-J>
@@ -83,7 +89,7 @@ set shiftwidth=2
 "autocmd Filetype css setlocal ts=2 sw=2 expandtab
 "autocmd Filetype scss setlocal ts=2 sw=2 expandtab
 "autocmd Filetype ruby setlocal ts=2 sw=2 expandtab
-autocmd Filetype javascript setlocal ts=4 sw=4 expandtab
+"autocmd Filetype javascript setlocal ts=4 sw=4 expandtab
 autocmd Filetype java setlocal ts=4 sw=4 expandtab
 
 "white space highlighting
@@ -126,6 +132,10 @@ noremap k gk
 noremap gj j
 noremap gk k
 
+"include syncing local files to vagrant
+let s:config_path = fnamemodify(resolve(expand('<sfile>:p')), ':h')
+exec "source " . s:config_path . '/vim/vimrc-vagrant-sync'
+
 "vim-go settings
 au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>b <Plug>(go-build)
@@ -138,3 +148,16 @@ let g:go_highlight_fields = 1
 let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
+
+"Syntastic default settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+"Enable jsx syntax highlighting for any js file
+let g:jsx_ext_required = 0

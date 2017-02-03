@@ -7,8 +7,9 @@ done
 alias gb="git branch"
 alias gco="git checkout"
 alias gc="git commit -v"
-alias gs="git status -s -b"
 alias gst="git status"
+alias ll="ls -la"
+alias be="bundle exec"
 
 local ret_status="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ %s)"
 PROMPT='${ret_status}%{$fg_bold[green]%}%p %{$fg[cyan]%}%c %{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}'
@@ -29,3 +30,7 @@ export PATH=$PATH:$GOPATH/bin
 
 #configuration for php-version
 source $(brew --prefix php-version)/php-version.sh && php-version 5
+
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+export CLASSPATH=$CLASSPATH:~/algs4/algs4.jar
