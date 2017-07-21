@@ -1,6 +1,5 @@
 set nocompatible
 
-execute pathogen#infect()
 syntax on
 filetype plugin indent on
 
@@ -132,10 +131,6 @@ noremap k gk
 noremap gj j
 noremap gk k
 
-"include syncing local files to vagrant
-let s:config_path = fnamemodify(resolve(expand('<sfile>:p')), ':h')
-exec "source " . s:config_path . '/vim/vimrc-vagrant-sync'
-
 "vim-go settings
 au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>b <Plug>(go-build)
@@ -161,3 +156,22 @@ let g:syntastic_check_on_wq = 0
 
 "Enable jsx syntax highlighting for any js file
 let g:jsx_ext_required = 0
+
+call plug#begin('~/.vim/plugged')
+Plug 'raimondi/delimitMate'
+Plug 'mattn/emmet-vim'
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'cakebaker/scss-syntax.vim'
+Plug 'vim-syntastic/syntastic'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'tpope/vim-dispatch'
+Plug 'elixir-lang/vim-elixir'
+Plug 'tpope/vim-endwise'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'tpope/vim-surround'
+Plug 'fatih/vim-go'
+call plug#end()
+

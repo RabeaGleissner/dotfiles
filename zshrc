@@ -22,15 +22,11 @@ ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%})"
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 export PATH=$HOME/.rbenv/shims:$PATH
 source /usr/local/opt/nvm/nvm.sh
-export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh
+export NVM_DIR="$HOME/.nvm"
 
 export GOPATH=/Users/rabeagleissner
-export PATH=$PATH:$GOPATH/bin
-
-#configuration for php-version
-source $(brew --prefix php-version)/php-version.sh && php-version 5
 
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 export CLASSPATH=$CLASSPATH:~/algs4/algs4.jar
+
