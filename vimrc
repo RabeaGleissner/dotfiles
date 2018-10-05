@@ -157,6 +157,9 @@ let g:syntastic_check_on_wq = 0
 "Enable jsx syntax highlighting for any js file
 let g:jsx_ext_required = 0
 
+"Hash rocket
+imap <C-L> <SPACE>=><SPACE>
+
 call plug#begin('~/.vim/plugged')
 Plug 'raimondi/delimitMate'
 Plug 'mattn/emmet-vim'
@@ -173,5 +176,6 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'tpope/vim-surround'
 Plug 'fatih/vim-go'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'w0rp/ale'
 call plug#end()
-
