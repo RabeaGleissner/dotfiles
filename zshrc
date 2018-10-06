@@ -9,6 +9,7 @@ alias gco="git checkout"
 alias gc="git commit -v"
 alias gst="git status"
 alias ll="ls -la"
+alias gl="git log --graph --all --pretty=format:'%C(magenta)%h%C(auto)%d %s %C(green)(%cr) %C(bold blue)%an%C(white)/%C(cyan)%cn'"
 alias be="bundle exec"
 
 local ret_status="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ %s)"
