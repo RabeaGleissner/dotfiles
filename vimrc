@@ -178,4 +178,5 @@ Plug 'tpope/vim-surround'
 Plug 'fatih/vim-go'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'w0rp/ale'
+Plug 'tpope/vim-fugitive'
 call plug#end()
