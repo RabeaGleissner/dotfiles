@@ -160,6 +160,14 @@ let g:jsx_ext_required = 0
 "Hash rocket
 imap <C-L> <SPACE>=><SPACE>
 
+"snippets for console.log
+" Console log from insert mode; Puts focus inside parentheses
+imap cll console.log();<Esc>==f(a
+" Console log from visual mode on next line, puts visual selection inside parentheses
+vmap cll yocll<Esc>p
+" Console log from normal mode, inserted on next line with word your on inside parentheses
+nmap cll yiwocll<Esc>p ")
+
 call plug#begin('~/.vim/plugged')
 Plug 'raimondi/delimitMate'
 Plug 'mattn/emmet-vim'
