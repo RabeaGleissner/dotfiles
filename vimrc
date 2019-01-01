@@ -16,7 +16,6 @@ set autoindent " automatically set indent of new line
 set mouse=a "switch on mouse scrolling
 " disable Q for not automatically entering Ex mode
 nnoremap Q <nop>
-set wildignore+=**/node_modules
 
 " show file path in status line
 set statusline+=%F
@@ -34,12 +33,18 @@ let mapleader=" "
 inoremap <Esc> <Esc>:w<CR>
 " remap jf to escape
 inoremap jf <Esc>:w<CR>
-" ctrlP fuzzy searching files
-let g:ctrlp_map = '<c-p>'
 " use ag to search for files to improve speed
 if executable('ag')
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
+
+"  eliminate white space
+nnoremap <leader>; mz:%s/\s\+$//<cr>:let @/=''<cr>`z<cr>:w<cr>
+
+" shortcuts for fzf
+map <c-p> :GFiles<CR>
+map <leader>h :History<CR>
+map <leader>g :GFiles?<CR>
 
 " indent entire page"
 map <Leader>i mzgg=G`z
@@ -131,11 +136,6 @@ noremap k gk
 noremap gj j
 noremap gk k
 
-"vim-go settings
-au FileType go nmap <leader>r <Plug>(go-run)
-au FileType go nmap <leader>b <Plug>(go-build)
-au FileType go nmap <leader>t <Plug>(go-test)
-au FileType go nmap <leader>c <Plug>(go-coverage)
 "enable syntax highlighting
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
@@ -168,6 +168,9 @@ vmap cll yocll<Esc>p
 " Console log from normal mode, inserted on next line with word your on inside parentheses
 nmap cll yiwocll<Esc>p ")
 
+"enable fzf (needs to be brew installed first)
+set rtp+=/usr/local/opt/fzf
+
 call plug#begin('~/.vim/plugged')
 Plug 'raimondi/delimitMate'
 Plug 'mattn/emmet-vim'
@@ -177,14 +180,13 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'vim-syntastic/syntastic'
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'tpope/vim-dispatch'
 Plug 'elixir-lang/vim-elixir'
 Plug 'tpope/vim-endwise'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'tpope/vim-surround'
-Plug 'fatih/vim-go'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'w0rp/ale'
 Plug 'tpope/vim-fugitive'
+Plug 'junegunn/fzf.vim'
+Plug 'BurntSushi/ripgrep'
 call plug#end()

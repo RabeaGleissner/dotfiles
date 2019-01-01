@@ -10,3 +10,5 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \ https://raw.githubusercontent
 - create folder called `plugged` in .vim
 
 - open vim, source .vimrc and also run `:PlugInstall`
+
+- brew install fzf (for file finding)

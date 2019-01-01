@@ -1,6 +1,6 @@
 autoload -U compaudit compinit
 
-for config_file (~/.dotfiles/zsh/*.zsh); do
+for config_file (~/dotfiles/zsh/*.zsh); do
   source $config_file
 done
 
@@ -23,14 +23,11 @@ ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%}) %{$fg[yellow]%}✗%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%})"
 
+export FZF_DEFAULT_COMMAND="rg --files"
+
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 export PATH=$HOME/.rbenv/shims:$PATH
-export GOPATH=/Users/rabeagleissner
 
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
-export CLASSPATH=$CLASSPATH:~/algs4/algs4.jar
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
