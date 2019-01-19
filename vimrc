@@ -33,10 +33,6 @@ let mapleader=" "
 inoremap <Esc> <Esc>:w<CR>
 " remap jf to escape
 inoremap jf <Esc>:w<CR>
-" use ag to search for files to improve speed
-if executable('ag')
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-endif
 
 "  eliminate white space
 nnoremap <leader>; mz:%s/\s\+$//<cr>:let @/=''<cr>`z<cr>:w<cr>
