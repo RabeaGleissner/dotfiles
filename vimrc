@@ -16,6 +16,10 @@ set autoindent " automatically set indent of new line
 set mouse=a "switch on mouse scrolling
 " disable Q for not automatically entering Ex mode
 nnoremap Q <nop>
+" highlight found words on search
+set hlsearch
+" remove highlighting with leader j
+map <leader>j <Esc>:noh<CR>
 
 " show file path in status line
 set statusline+=%F
@@ -163,6 +167,10 @@ imap cll console.log();<Esc>==f(a
 vmap cll yocll<Esc>p
 " Console log from normal mode, inserted on next line with word your on inside parentheses
 nmap cll yiwocll<Esc>p ")
+" add stars
+imap cstar console.log('***********************');<Esc>
+" stars from normal mode
+nmap clo yiwocstar<Esc>p ")
 
 "enable fzf (needs to be brew installed first)
 set rtp+=/usr/local/opt/fzf
@@ -186,4 +194,5 @@ Plug 'w0rp/ale'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf.vim'
 Plug 'BurntSushi/ripgrep'
+Plug 'leafgarland/typescript-vim'
 call plug#end()
