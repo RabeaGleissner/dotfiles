@@ -4,6 +4,13 @@ for config_file (~/dotfiles/zsh/*.zsh); do
   source $config_file
 done
 
+docker_login() {
+  prefix=$1
+  docker exec -t -i `docker ps | grep $prefix | awk '{print $1}'` bash
+}
+alias dl=docker_login
+alias start_pg="pg_ctl -D /usr/local/var/postgres start"
+
 alias gb="git branch"
 alias gco="git checkout"
 alias gc="git commit -v"
