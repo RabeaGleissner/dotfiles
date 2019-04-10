@@ -18,8 +18,6 @@ set mouse=a "switch on mouse scrolling
 nnoremap Q <nop>
 " highlight found words on search
 set hlsearch
-" remove highlighting with leader j
-map <leader>j <Esc>:noh<CR>
 
 " show file path in status line
 set statusline+=%F
@@ -31,12 +29,17 @@ let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
 " remapping commands
-" my leader is space
+" set leader to space
 let mapleader=" "
+
 " automatically save when escaping insert mode
 inoremap <Esc> <Esc>:w<CR>
+
 " remap jf to escape
 inoremap jf <Esc>:w<CR>
+
+" remove highlighting with leader j
+map <leader>j <Esc>:noh<CR>
 
 "  eliminate white space
 nnoremap <leader>; mz:%s/\s\+$//<cr>:let @/=''<cr>`z<cr>:w<cr>
@@ -80,7 +83,7 @@ nnoremap <C-H> <C-W><C-H>
 set number
 
 "use mac clipboard to copy and paste between other applications and vim
-set clipboard+=unnamed
+set clipboard+=unnamedplus
 
 colorscheme wellsokai
 
