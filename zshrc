@@ -4,11 +4,19 @@ for config_file (~/dotfiles/zsh/*.zsh); do
   source $config_file
 done
 
+find_and_replace_in_project() {
+  current_text=$1
+  new_text=$2
+  git grep -l $current_text | xargs sed -i "" -e "s/${current_text}/${new_text}/g"
+}
+
 docker_login() {
   prefix=$1
-  docker exec -t -i `docker ps | grep $prefix | awk '{print $1}'` bash
+  docker exec -t -i `docker ps | grep $prefix | awk "{print $1}"` bash
 }
+
 alias dl=docker_login
+alias fr=find_and_replace_in_project
 alias start_pg="pg_ctl -D /usr/local/var/postgres start"
 
 alias gb="git branch"
