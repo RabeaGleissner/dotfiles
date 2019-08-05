@@ -47,6 +47,9 @@ map <leader>unfit <Esc>/^\s*it.only(<cr>fodiwhx<Esc>
 " remove highlighting with leader j
 map <leader>j <Esc>:noh<CR>
 
+" set nopaste with leader np
+map <leader>np <Esc>:set nopaste<CR>
+
 "  eliminate white space with leader ;
 nnoremap <leader>; mz:%s/\s\+$//<cr>:let @/=''<cr>`z<cr>:w<cr>
 
