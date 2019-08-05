@@ -38,10 +38,16 @@ inoremap <Esc> <Esc>:w<CR>
 " remap jf to escape
 inoremap jf <Esc>:w<CR>
 
+" fit specific test
+map <leader>fit <Esc>/^\s*it(<cr>N0f(i.only<Esc>
+
+" unfit specific test
+map <leader>unfit <Esc>/^\s*it.only(<cr>fodiwhx<Esc>
+
 " remove highlighting with leader j
 map <leader>j <Esc>:noh<CR>
 
-"  eliminate white space
+"  eliminate white space with leader ;
 nnoremap <leader>; mz:%s/\s\+$//<cr>:let @/=''<cr>`z<cr>:w<cr>
 
 " shortcuts for fzf
