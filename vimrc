@@ -38,6 +38,9 @@ inoremap <Esc> <Esc>:w<CR>
 " remap jf to escape
 inoremap jf <Esc>:w<CR>
 
+" show in NerdTree
+map <leader>nf <Esc>:NERDTreeFind<cr>
+
 " fit specific test
 map <leader>fit <Esc>/^\s*it(<cr>N0f(i.only<Esc>
 
@@ -178,7 +181,7 @@ imap cll console.log();<Esc>==f(a
 " Console log from visual mode on next line, puts visual selection inside parentheses
 vmap cll yocll<Esc>p
 " Console log from normal mode, inserted on next line with word your on inside parentheses
-nmap cll yiwocll<Esc>p ")
+nmap cll yiwocll<Esc>pF(a'<Esc>lyiwea', <Esc>p<Esc>
 " add stars
 imap cstar console.log('***********************');<Esc>
 " stars from normal mode
