@@ -4,10 +4,21 @@ for config_file (~/dotfiles/zsh/*.zsh); do
   source $config_file
 done
 
+find_with_line_number() {
+  word_to_find=$1
+  git grep -n "${word_to_find}"
+}
+
 find_and_replace_in_project() {
   current_text=$1
   new_text=$2
   git grep -l $current_text | xargs sed -i "" -e "s/${current_text}/${new_text}/g"
+}
+
+open_on_github() {
+  app="$(basename `pwd`)"
+  user=${1:-"tes"}
+  open https://github.com/${user}/${app}
 }
 
 docker_login() {
@@ -18,6 +29,8 @@ docker_login() {
 alias dl=docker_login
 alias fr=find_and_replace_in_project
 alias start_pg="pg_ctl -D /usr/local/var/postgres start"
+alias f=find_with_line_number
+alias gh_open=open_on_github $1
 
 alias gb="git branch"
 alias gco="git checkout"
@@ -39,6 +52,9 @@ ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%}) %{$fg[yellow]%}✗%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%})"
 
 export FZF_DEFAULT_COMMAND="rg --files"
+
+#remember history in Elixir terminal after closing it
+export ERL_AFLAGS="-kernel shell_history enabled"
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 export PATH=$HOME/.rbenv/shims:$PATH
