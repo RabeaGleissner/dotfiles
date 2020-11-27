@@ -64,27 +64,6 @@ map <leader>g :GFiles?<CR>
 " indent entire page"
 map <Leader>i mzgg=G`z
 
-" Shorcuts for running tests
-" Ruby
-" run tests with leader + t (tests open in new pane with vim-dispatch)
-autocmd Filetype ruby map <leader>t :Dispatch rspec spec<CR>
-" Run vim-dispatch for the specific test where the line cursor is on
-autocmd Filetype ruby map <leader>tt :execute "Dispatch rspec %:" . line(".")<CR>
-" Run all rspec tests including slow tests on full screen
-autocmd Filetype ruby map <leader>aft :! clear; rspec spec/ <cr>
-" Run rspec without the slow tests on full screen
-autocmd Filetype ruby map <leader>ft :! clear; rspec --tag '~slow' spec/ <cr>
-"Elixir
-"Run ExUnit tests on full screen with leader + ft
-autocmd Filetype elixir map <leader>ft :! clear; mix test<cr>
-"run ExUnit tests with leader + t in vim-dispatch
-autocmd Filetype elixir map <leader>t :Dispatch mix test<CR>
-"PHP
-"Run PHPUnit tests on full screen with leader + ft
-autocmd Filetype php map <leader>ft :! clear; vendor/bin/phpunit test<cr>
-"run PHPUnit tests with leader + t in vim-dispatch
-autocmd Filetype php map <leader>t :Dispatch vendor/bin/phpunit test<CR>
-
 "navigating splits more easily
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -104,11 +83,6 @@ set tabstop=2
 set shiftwidth=2
 
 "indentation
-"autocmd Filetype html setlocal ts=2 sw=2 expandtab
-"autocmd Filetype css setlocal ts=2 sw=2 expandtab
-"autocmd Filetype scss setlocal ts=2 sw=2 expandtab
-"autocmd Filetype ruby setlocal ts=2 sw=2 expandtab
-"autocmd Filetype javascript setlocal ts=4 sw=4 expandtab
 autocmd Filetype java setlocal ts=4 sw=4 expandtab
 
 "white space highlighting
@@ -186,6 +160,8 @@ nmap cll yiwocll<Esc>pF(a'<Esc>lyiwea', <Esc>p<Esc>
 imap cstar console.log('***********************');<Esc>
 " stars from normal mode
 nmap clo yiwocstar<Esc>p ")
+" JavaScript try/catch block
+nmap trca otry {<Esc>li<Enter><Esc>A catch (err<Esc>la {<Enter><Esc>kk
 
 "enable fzf (needs to be brew installed first)
 set rtp+=/usr/local/opt/fzf

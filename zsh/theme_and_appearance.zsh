@@ -43,5 +43,17 @@ ZSH_THEME_GIT_PROMPT_SUFFIX=")"             # At the very end of the prompt
 ZSH_THEME_GIT_PROMPT_DIRTY="*"              # Text to display if the branch is dirty
 ZSH_THEME_GIT_PROMPT_CLEAN=""               # Text to display if the branch is clean
 
+precmd() { eval "$PROMPT_COMMAND" }
+enter_directory(){
+  if [ "$PWD" != "$PREV_PWD" ]; then
+    PREV_PWD="$PWD";
+    if [ -e ".nvmrc" ]; then
+      nvm use;
+    fi
+  fi
+}
+
+PROMPT_COMMAND="enter_directory"
+
 # Setup the prompt with pretty colors
 setopt prompt_subst
