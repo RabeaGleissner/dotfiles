@@ -162,6 +162,8 @@ imap cstar console.log('***********************');<Esc>
 nmap clo yiwocstar<Esc>p ")
 " JavaScript try/catch block
 nmap trca otry {<Esc>li<Enter><Esc>A catch (err<Esc>la {<Enter><Esc>kk
+" JavaScript object one line to multi line
+nmap ml V:s/, /,<C-v><Enter>/g<Enter><C-o>f{a<Enter><Esc>vi{=
 
 "enable fzf (needs to be brew installed first)
 set rtp+=/usr/local/opt/fzf
