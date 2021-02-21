@@ -82,9 +82,6 @@ set expandtab
 set tabstop=2
 set shiftwidth=2
 
-"indentation
-autocmd Filetype java setlocal ts=4 sw=4 expandtab
-
 "white space highlighting
 highlight ExtraWhitespace ctermbg=blue
 
