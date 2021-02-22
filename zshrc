@@ -4,6 +4,12 @@ for config_file (~/dotfiles/zsh/*.zsh); do
   source $config_file
 done
 
+# upgrade global npm package for all node versions
+bump_all() {
+  nvm ls --no-colors | grep -v -E -e '.+->' | sed 's/[-*> ]//g' | while read in; do nvm exec "$in" npm i -g $1; done
+}
+alias bump_all=bump_all
+
 find_with_line_number() {
   word_to_find=$1
   git grep -n "${word_to_find}"
