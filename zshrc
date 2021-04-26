@@ -21,12 +21,6 @@ find_and_replace_in_project() {
   git grep -l $current_text | xargs sed -i "" -e "s/${current_text}/${new_text}/g"
 }
 
-open_on_github() {
-  app="$(basename `pwd`)"
-  user=${1:-"tes"}
-  open https://github.com/${user}/${app}
-}
-
 docker_login() {
   prefix=$1
   docker exec -t -i `docker ps | grep $prefix | awk "{print $1}"` bash
