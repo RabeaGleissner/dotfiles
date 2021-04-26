@@ -55,11 +55,6 @@ map <leader>np <Esc>:set nopaste<CR>
 "  eliminate white space with leader ;
 nnoremap <leader>; mz:%s/\s\+$//<cr>:let @/=''<cr>`z<cr>:w<cr>
 
-" shortcuts for fzf
-map <c-p> :GFiles<CR>
-map <leader>h :History<CR>
-map <leader>g :GFiles?<CR>
-
 " indent entire page"
 map <Leader>i mzgg=G`z
 
@@ -154,8 +149,18 @@ nmap trca otry {<Esc>li<Enter><Esc>A catch (err<Esc>la {<Enter><Esc>kk
 " JavaScript object one line to multi line
 nmap ml V:s/, /,<C-v><Enter>/g<Enter><C-o>f{a<Enter><Esc>vi{=
 
-"enable fzf (needs to be brew installed first)
-set rtp+=/usr/local/opt/fzf
+
+" use ripgrep to search files with ctrlp
+if executable('rg')
+  let g:ctrlp_user_command = 'rg %s --files --hidden --color=never --glob ""'
+  "let g:ctrlp_user_command = ['.git', 'cd %s && rg --files-with-matches ".*"', 'find %s -type f']
+endif
+let g:ctrlp_max_files=0
+let g:ctrlp_max_depth=40
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|coverage\'
+"show dot files
+let g:ctrlp_show_hidden = 1
+
 
 call plug#begin('~/.vim/plugged')
 Plug 'raimondi/delimitMate'
@@ -163,18 +168,16 @@ Plug 'mattn/emmet-vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'cakebaker/scss-syntax.vim'
 Plug 'vim-syntastic/syntastic'
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'elixir-lang/vim-elixir'
 Plug 'slashmili/alchemist.vim'
-Plug 'tpope/vim-endwise'
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
 Plug 'tpope/vim-surround'
 Plug 'w0rp/ale'
 Plug 'tpope/vim-fugitive'
-Plug 'junegunn/fzf.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'BurntSushi/ripgrep'
+Plug 'tpope/vim-endwise'
+Plug 'elixir-lang/vim-elixir'
+Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 call plug#end()
