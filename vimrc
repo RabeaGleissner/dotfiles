@@ -150,17 +150,22 @@ nmap trca otry {<Esc>li<Enter><Esc>A catch (err<Esc>la {<Enter><Esc>kk
 nmap ml V:s/, /,<C-v><Enter>/g<Enter><C-o>f{a<Enter><Esc>vi{=
 
 
+
+"ctrlp setup
+
 " use ripgrep to search files with ctrlp
 if executable('rg')
   let g:ctrlp_user_command = 'rg %s --files --hidden --color=never --glob ""'
-  "let g:ctrlp_user_command = ['.git', 'cd %s && rg --files-with-matches ".*"', 'find %s -type f']
 endif
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\.git$\|\.yardoc\|node_modules\|coverage\|log\|tmp$',
+  \ 'file': '\.so$\|\.dat$|\.DS_Store$'
+  \ }
+"find dotfiles
+let g:ctrlp_show_hidden = 1
+"supposed to make it faster
 let g:ctrlp_max_files=0
 let g:ctrlp_max_depth=40
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|coverage\'
-"show dot files
-let g:ctrlp_show_hidden = 1
-
 
 call plug#begin('~/.vim/plugged')
 Plug 'raimondi/delimitMate'
