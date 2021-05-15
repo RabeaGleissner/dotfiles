@@ -10,6 +10,8 @@ bump_all() {
 }
 alias bump_all=bump_all
 
+alias ag="ag --color-path 35 --color-match '1;39' --color-line-number 32"
+
 find_with_line_number() {
   word_to_find=$1
   git grep -n "${word_to_find}"
@@ -42,6 +44,7 @@ alias gd="git diff"
 alias gdc="git diff --cached"
 alias gsf="git diff-tree --no-commit-id --name-status -r"
 alias be="bundle exec"
+alias yt="DEBUG_PRINT_LIMIT=0 yarn test --watch --coverage=false"
 
 local ret_status="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ %s)"
 PROMPT='${ret_status}%{$fg_bold[green]%}%p %{$fg[cyan]%}%c %{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}'
@@ -50,8 +53,6 @@ ZSH_THEME_GIT_PROMPT_PREFIX="git:(%{$fg[red]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%}) %{$fg[yellow]%}✗%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%})"
-
-export FZF_DEFAULT_COMMAND="rg --files"
 
 #remember history in Elixir terminal after closing it
 export ERL_AFLAGS="-kernel shell_history enabled"
