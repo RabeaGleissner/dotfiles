@@ -149,9 +149,13 @@ nmap trca otry {<Esc>li<Enter><Esc>A catch (err<Esc>la {<Enter><Esc>kk
 " JavaScript object one line to multi line
 nmap ml V:s/, /,<C-v><Enter>/g<Enter><C-o>f{a<Enter><Esc>vi{=
 
+" Elixir debugging log
+nmap puts oIO.puts("\n***************************")<Esc>oIO.inspect<Esc>
+
+" eex tag
+nmap eex i<%= %><Esc>F=
 
 
-"ctrlp setup
 
 " use ripgrep to search files with ctrlp
 if executable('rg')
@@ -184,5 +188,8 @@ Plug 'BurntSushi/ripgrep'
 Plug 'tpope/vim-endwise'
 Plug 'elixir-lang/vim-elixir'
 Plug 'pangloss/vim-javascript'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plug 'mxw/vim-jsx'
 Plug 'leafgarland/typescript-vim'
+Plug 'HerringtonDarkholme/yats.vim'
 call plug#end()
