@@ -1,17 +1,17 @@
 set nocompatible
 
 syntax on
-filetype plugin indent on
 
 set encoding=utf8
-set nosmartindent
 set modelines=0
+
+filetype plugin indent on
+set backspace=indent,eol,start
+set autoindent
 
 set background=dark
 set hidden
-set backspace=indent,eol,start
 set noswapfile
-set autoindent " automatically set indent of new line
 set mouse=a "switch on mouse scrolling
 " disable Q for not automatically entering Ex mode
 nnoremap Q <nop>
@@ -189,7 +189,7 @@ Plug 'tpope/vim-endwise'
 Plug 'elixir-lang/vim-elixir'
 Plug 'pangloss/vim-javascript'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
-Plug 'mxw/vim-jsx'
+Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'leafgarland/typescript-vim'
 Plug 'HerringtonDarkholme/yats.vim'
 call plug#end()
