@@ -93,29 +93,16 @@ autocmd FileType markdown setlocal spell spelllang=en_gb
 set spellfile=$HOME/.vim-spell-en.utf-8.add
 set complete+=kspell
 
+
 "open nerdtree using Ctrl+n
 map <C-n> :NERDTreeToggle<CR>
 "show hidden files by default
 let NERDTreeShowHidden=1
 
-"no arrow keys in normal, insert, visual modes
-nnoremap <up> <nop>
-nnoremap <down> <nop>
-nnoremap <left> <nop>
-nnoremap <right> <nop>
-inoremap <up> <nop>
-inoremap <down> <nop>
-inoremap <left> <nop>
-inoremap <right> <nop>
-vnoremap <up> <nop>
-vnoremap <up> <nop>
-vnoremap <up> <nop>
-vnoremap <up> <nop>
 noremap j gj
 noremap k gk
 noremap gj j
 noremap gk k
-
 
 "Syntastic default settings
 set statusline+=%#warningmsg#
