@@ -1,0 +1,56 @@
+{
+  "eslint.validate": [
+      "typescript",
+      "typescriptreact",
+      "javascript",
+      "javascriptreact"
+  ],
+  "files.autoSave": "onFocusChange",
+  "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+  },
+  "editor.formatOnSave": true,
+  "editor.codeLens": false,
+  "editor.wordWrap": "on",
+  "vim.useSystemClipboard": true,
+  "vim.normalModeKeyBindings": [
+    {
+        "before": [
+            "<C-l>"
+        ],
+        "after": [
+            "<C-W>",
+            "l"
+        ]
+    },
+],
+"vim.insertModeKeyBindings": [
+      {
+          "before": [
+              "j",
+              "f"
+          ],
+          "after": [
+              "<ESC>"
+          ]
+      },
+      {
+          "before": [
+              "<C-L>",
+          ],
+          "after": [
+              "<SPACE>=><SPACE>"
+          ]
+      }
+  ],
+  "window.zoomLevel": 1,
+"workbench.settings.editor": "json",
+"[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+},
+"editor.minimap.enabled": false,
+"[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+},
+"workbench.colorTheme": "fairyfloss"
+}

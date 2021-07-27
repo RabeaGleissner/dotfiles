@@ -1,0 +1,48 @@
+[{
+    "key": "ctrl+k",
+    "command": "workbench.action.navigateUp"
+},
+{
+    "key": "ctrl+j",
+    "command": "workbench.action.navigateDown"
+},
+{
+    "key": "ctrl+h",
+    "command": "workbench.action.navigateLeft"
+},
+{
+    "key": "ctrl+p",
+    "command": "workbench.action.files.openLocalFileFolder",
+    "when": "remoteFileDialogVisible"
+},
+{
+    "key": "cmd+o",
+    "command": "-workbench.action.files.openLocalFileFolder",
+    "when": "remoteFileDialogVisible"
+},
+{
+    "key": "ctrl+p",
+    "command": "workbench.action.quickOpen",
+    "when": "editorFocus"
+},
+{
+    "key": "cmd+p",
+    "command": "-workbench.action.quickOpen"
+},
+{
+    "key": "ctrl+n",
+    "command": "workbench.action.toggleSidebarVisibility"
+},
+{
+    "key": "cmd+b",
+    "command": "-workbench.action.toggleSidebarVisibility"
+},
+{
+    "key": "ctrl+j",
+    "command": "workbench.action.togglePanel"
+},
+{
+    "key": "cmd+j",
+    "command": "-workbench.action.togglePanel"
+}
+]
