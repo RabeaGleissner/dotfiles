@@ -1,56 +1,56 @@
 {
   "eslint.validate": [
-      "typescript",
-      "typescriptreact",
-      "javascript",
-      "javascriptreact"
+    "typescript",
+    "typescriptreact",
+    "javascript",
+    "javascriptreact"
   ],
   "files.autoSave": "onFocusChange",
   "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": true
+    "source.fixAll.eslint": true
   },
   "editor.formatOnSave": true,
   "editor.codeLens": false,
   "editor.wordWrap": "on",
+  "editor.insertSpaces": true,
+  "editor.tabSize": 2,
+  "emmet.includeLanguages": { "erb": "html" },
   "vim.useSystemClipboard": true,
   "vim.normalModeKeyBindings": [
     {
-        "before": [
-            "<C-l>"
-        ],
-        "after": [
-            "<C-W>",
-            "l"
-        ]
-    },
-],
-"vim.insertModeKeyBindings": [
-      {
-          "before": [
-              "j",
-              "f"
-          ],
-          "after": [
-              "<ESC>"
-          ]
-      },
-      {
-          "before": [
-              "<C-L>",
-          ],
-          "after": [
-              "<SPACE>=><SPACE>"
-          ]
-      }
+      "before": ["<C-l>"],
+      "after": ["<C-W>", "l"]
+    }
   ],
-  "window.zoomLevel": 1,
-"workbench.settings.editor": "json",
-"[typescriptreact]": {
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "f"],
+      "after": ["<ESC>"]
+    },
+    {
+      "before": ["<C-L>"],
+      "after": ["<SPACE>=><SPACE>"]
+    }
+  ],
+  "workbench.settings.editor": "json",
+  "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-},
-"editor.minimap.enabled": false,
-"[typescript]": {
+  },
+  "editor.minimap.enabled": false,
+  "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-},
-"workbench.colorTheme": "fairyfloss"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "extensions.ignoreRecommendations": true,
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }

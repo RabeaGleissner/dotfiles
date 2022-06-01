@@ -94,6 +94,13 @@ set spellfile=$HOME/.vim-spell-en.utf-8.add
 set complete+=kspell
 
 
+let g:ale_fixers = {
+\   'javascript': ['prettier', 'eslint'],
+\   'typescript': ['prettier', 'eslint'],
+\}
+
+map <leader>af :ALEFix<CR>
+
 "open nerdtree using Ctrl+n
 map <C-n> :NERDTreeToggle<CR>
 "show hidden files by default
@@ -142,8 +149,6 @@ nmap puts oIO.puts("\n***************************")<Esc>oIO.inspect<Esc>
 " eex tag
 nmap eex i<%= %><Esc>F=
 
-
-
 " use ripgrep to search files with ctrlp
 if executable('rg')
   let g:ctrlp_user_command = 'rg %s --files --hidden --color=never --glob ""'
@@ -158,6 +163,12 @@ let g:ctrlp_show_hidden = 1
 let g:ctrlp_max_files=0
 let g:ctrlp_max_depth=40
 
+
+"Fixes for vim-elixir plugin not detecting filetypes
+au BufRead,BufNewFile *.ex,*.exs set filetype=elixir
+au BufRead,BufNewFile *.eex,*.heex,*.leex,*.sface,*.lexs set filetype=eelixir
+au BufRead,BufNewFile mix.lock set filetype=elixir
+
 call plug#begin('~/.vim/plugged')
 Plug 'raimondi/delimitMate'
 Plug 'mattn/emmet-vim'
@@ -168,15 +179,12 @@ Plug 'vim-syntastic/syntastic'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'slashmili/alchemist.vim'
 Plug 'tpope/vim-surround'
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 Plug 'tpope/vim-fugitive'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'BurntSushi/ripgrep'
 Plug 'tpope/vim-endwise'
-Plug 'elixir-lang/vim-elixir'
+Plug 'elixir-editors/vim-elixir'
 Plug 'pangloss/vim-javascript'
-Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'MaxMEllon/vim-jsx-pretty'
-Plug 'leafgarland/typescript-vim'
-Plug 'HerringtonDarkholme/yats.vim'
 call plug#end()
