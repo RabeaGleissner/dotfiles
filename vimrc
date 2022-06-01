@@ -163,6 +163,10 @@ let g:ctrlp_show_hidden = 1
 let g:ctrlp_max_files=0
 let g:ctrlp_max_depth=40
 
+"need to create a coAuthors file for this
+"example syntax:
+"nmap shortcutname oCo-authored-by: First Last <first.last@example.com><Esc>
+source coAuthors.vim
 
 "Fixes for vim-elixir plugin not detecting filetypes
 au BufRead,BufNewFile *.ex,*.exs set filetype=elixir
