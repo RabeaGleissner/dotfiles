@@ -4,12 +4,6 @@ for config_file (~/dotfiles/zsh/*.zsh); do
   source $config_file
 done
 
-# upgrade global npm package for all node versions
-bump_all() {
-  nvm ls --no-colors | grep -v -E -e '.+->' | sed 's/[-*> ]//g' | while read in; do nvm exec "$in" npm i -g $1; done
-}
-alias bump_all=bump_all
-
 alias ag="ag --color-path 35 --color-match '1;39' --color-line-number 32"
 
 find_with_line_number() {
@@ -45,6 +39,7 @@ alias gdc="git diff --cached"
 alias gsf="git diff-tree --no-commit-id --name-status -r"
 alias be="bundle exec"
 alias yt="DEBUG_PRINT_LIMIT=0 yarn test --watch --coverage=false"
+alias grs="git restore --staged"
 
 local ret_status="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ %s)"
 PROMPT='${ret_status}%{$fg_bold[green]%}%p %{$fg[cyan]%}%c %{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}'
@@ -61,6 +56,7 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 export PATH=$HOME/.rbenv/shims:$PATH
 export PATH=$HOME/mongodb/bin:$PATH
 
+# Config for nvm (installed with homebrew)
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
