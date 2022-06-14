@@ -147,7 +147,10 @@ nmap ml V:s/, /,<C-v><Enter>/g<Enter><C-o>f{a<Enter><Esc>vi{=
 nmap puts oIO.puts("\n***************************")<Esc>oIO.inspect<Esc>
 
 " eex tag
-nmap eex i<%= %><Esc>F=
+nmap eex o<%= %><Esc>F=
+
+" end tag
+nmap end o<% end %><Esc>
 
 " use ripgrep to search files with ctrlp
 if executable('rg')
