@@ -1,4 +1,5 @@
-autoload -U compaudit compinit
+#autoload -U compaudit compinit
+autoload -Uz compinit && compinit
 
 for config_file (~/dotfiles/zsh/*.zsh); do
   source $config_file
@@ -62,5 +63,3 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 autoload -U +X bashcompinit && bashcompinit
-
-. $HOME/.asdf/asdf.sh

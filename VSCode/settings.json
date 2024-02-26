@@ -7,19 +7,38 @@
   ],
   "files.autoSave": "onFocusChange",
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+    "source.fixAll.eslint": "explicit"
   },
   "editor.formatOnSave": true,
   "editor.codeLens": false,
   "editor.wordWrap": "on",
   "editor.insertSpaces": true,
   "editor.tabSize": 2,
-  "emmet.includeLanguages": { "erb": "html" },
+  "emmet.includeLanguages": {
+    "erb": "html",
+    "html-eex": "html",
+    "phoenix-heex": "html",
+    "elixir": "html"
+  },
+  "emmet.triggerExpansionOnTab": true,
   "vim.useSystemClipboard": true,
   "vim.normalModeKeyBindings": [
     {
       "before": ["<C-l>"],
       "after": ["<C-W>", "l"]
+    },
+    {
+      // eex tag
+      "before": ["e", "e", "x"],
+      "after": ["o","<","%","=", " ","%",">","<Esc>","F","="]
+    },{
+      // end tag
+      "before": ["e", "n", "d"],
+      "after": ["o","<","%", " ", "e", "n", "d", " ","%",">","<Esc>"]
+    }, {
+      // inspect in pipeline
+      "before": ["p", "i"],
+      "after": ["o","|",">", " ", "d", "b", "g", "<Esc>"]
     }
   ],
   "vim.insertModeKeyBindings": [
@@ -52,5 +71,29 @@
   },
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "editor.inlineSuggest.enabled": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "github.copilot.enable": {
+    "*": false,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false
+  },
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "elixirLS.suggestSpecs": false,
+  "elixirLS.dialyzerEnabled": true,
+  "elixirLS.signatureAfterComplete": false,
+  "elixirLS.fetchDeps": false,
+  "files.associations": {
+    "*.heex": "phoenix-heex"
+  },
+  "[elixir]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "JakeBecker.elixir-ls"
+  },
+  "[phoenix-heex]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "JakeBecker.elixir-ls"
+  },
 }

@@ -137,7 +137,7 @@ nmap cll yiwocll<Esc>pF(a'<Esc>lyiwea', <Esc>p<Esc>
 " add stars
 imap cstar console.log('***********************');<Esc>
 " stars from normal mode
-nmap clo yiwocstar<Esc>p ")
+nmap clo yiwocstar<Esc>hi, <ESC>p ")
 " JavaScript try/catch block
 nmap trca otry {<Esc>li<Enter><Esc>A catch (err<Esc>la {<Enter><Esc>kk
 " JavaScript object one line to multi line
@@ -145,6 +145,9 @@ nmap ml V:s/, /,<C-v><Enter>/g<Enter><C-o>f{a<Enter><Esc>vi{=
 
 " Elixir debugging log
 nmap puts oIO.puts("\n***************************")<Esc>oIO.inspect<Esc>
+
+" Elixir inspect in pipeline
+nmap pi o\|> IO.inspect<Esc>
 
 " eex tag
 nmap eex o<%= %><Esc>F=
@@ -157,7 +160,7 @@ if executable('rg')
   let g:ctrlp_user_command = 'rg %s --files --hidden --color=never --glob ""'
 endif
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\.git$\|\.yardoc\|node_modules\|coverage\|log\|tmp$',
+  \ 'dir':  '\.git$\|\.yardoc\|node_modules\|deps\|build\|coverage\|log\|tmp$',
   \ 'file': '\.so$\|\.dat$|\.DS_Store$'
   \ }
 "find dotfiles
@@ -194,4 +197,5 @@ Plug 'tpope/vim-endwise'
 Plug 'elixir-editors/vim-elixir'
 Plug 'pangloss/vim-javascript'
 Plug 'MaxMEllon/vim-jsx-pretty'
+Plug 'github/copilot.vim'
 call plug#end()
