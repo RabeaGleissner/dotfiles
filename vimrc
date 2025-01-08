@@ -144,10 +144,10 @@ nmap trca otry {<Esc>li<Enter><Esc>A catch (err<Esc>la {<Enter><Esc>kk
 nmap ml V:s/, /,<C-v><Enter>/g<Enter><C-o>f{a<Enter><Esc>vi{=
 
 " Elixir debugging log
-nmap puts oIO.puts("\n***************************")<Esc>oIO.inspect<Esc>
+nmap puts oIO.puts("\n***************************")<Esc>odbg()<Esc>i
 
 " Elixir inspect in pipeline
-nmap pi o\|> IO.inspect<Esc>
+nmap pi o\|> dbg()<Esc>
 
 " eex tag
 nmap eex o<%= %><Esc>F=
@@ -172,7 +172,7 @@ let g:ctrlp_max_depth=40
 "need to create a .vim/coAuthors file for this
 "example syntax:
 "nmap shortcutname oCo-authored-by: First Last <first.last@example.com><Esc>
-source ~/.vim/coAuthors.vim
+" source ~/.vim/coAuthors.vim
 
 "Fixes for vim-elixir plugin not detecting filetypes
 au BufRead,BufNewFile *.ex,*.exs set filetype=elixir

@@ -74,12 +74,6 @@
   },
   "editor.inlineSuggest.enabled": true,
   "typescript.updateImportsOnFileMove.enabled": "always",
-  "github.copilot.enable": {
-    "*": false,
-    "plaintext": false,
-    "markdown": false,
-    "scminput": false
-  },
   "javascript.updateImportsOnFileMove.enabled": "always",
   "elixirLS.suggestSpecs": false,
   "elixirLS.dialyzerEnabled": true,
@@ -96,4 +90,9 @@
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "JakeBecker.elixir-ls"
   },
+  "tailwindCSS.includeLanguages": {
+    "elixir": "html",
+    "phoenix-heex": "html"
+  },
+  "workbench.colorTheme": "Solarized Light",
 }
