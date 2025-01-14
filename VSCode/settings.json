@@ -21,6 +21,8 @@
     "elixir": "html"
   },
   "emmet.triggerExpansionOnTab": true,
+  "vim.ignorecase": false,
+  "vim.smartcase": false,
   "vim.useSystemClipboard": true,
   "vim.normalModeKeyBindings": [
     {
@@ -39,6 +41,21 @@
       // inspect in pipeline
       "before": ["p", "i"],
       "after": ["o","|",">", " ", "d", "b", "g", "<Esc>"]
+    }, {
+      // inspect variable under cursor
+      "before": ["p", "u", "t", "s"],
+      "after": ["y", "i", "w", "o","d","b", "g", "(", "<Esc>", "p", "<Esc>"]
+    },
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [{
+      // comment out
+      "before": ["<SPACE>", "c", "c"],
+      "commands": ["editor.action.commentLine"]
+    },
+    {
+      // uncomment
+      "before": ["<SPACE>", "c", "u"],
+      "commands": ["editor.action.commentLine"]
     }
   ],
   "vim.insertModeKeyBindings": [
@@ -49,6 +66,10 @@
     {
       "before": ["<C-L>"],
       "after": ["<SPACE>=><SPACE>"]
+    },
+    {
+      "before": ["<C-N>"],
+      "after": ["editor.action.triggerSuggest"]
     }
   ],
   "workbench.settings.editor": "json",
